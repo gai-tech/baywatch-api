@@ -6,17 +6,17 @@
 
 ### Local Environment
 1. **Installing Node**
-2. **Download the Latest Version of the Project**
-- 'git clone https://github.com/gai-tech/baywatch-api.git'
-- Open CMD and run 'npm init' inside the repo
-- Press Enter Throughout Setup and Leave the Default Entries
-- Run 'npm install'
-- Run 'npm start' and the server is running
-You can now send requests for Development
-3. **Installing PostMan**
+2. **Download the Latest Version of the Project -** If you're here, you have access to the git repository for this project. Installing this into a relevant folder simplifies accessing your terminal.
+- `git clone https://github.com/gai-tech/baywatch-api.git`
+- Open CMD and run `npm init` inside the repo
+- Press `Enter` throughout setup and leave the default entries
+- Run `npm install`
+- Run `npm start` and the server is running
+You can now send requests for Development to localhost:3000
+3. **Installing PostMan -**
 PostMan is an application that developers use to run requests to send any type of request in Postman. Create and save custom methods and send requests.
-Download here [https://www.getpostman.com/](https://www.getpostman.com/)
-The address will be localhost:3000
+Download here [https://www.getpostman.com/](https://www.getpostman.com/).
+4. **Developement -** Currently the project is being run through mid-stages of dev. This will require time to configure  a DataBase but will be done soon.
 
 ### Repository Structure
 ![](https://joshuag.sgedu.site/Images/workflow.PNG)

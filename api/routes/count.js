@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
+
+const parkCount = require('../models/parkCount');
 
 router.get('/', (req, res, next) => {
     res.status(200).json({
@@ -7,14 +10,34 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.post('/', (req, res, next) => {
-    res.status(201).json({
-        message: 'Handling POST requests to /count'
-    });
+router.post('/:parkID', (req, res, next) => {
+    const id = req.params.parkID;
+    const count = new parkCount({
+        name: id,
+        count: req.body.count
+    })
+    count.save().then(result => {
+        console.log(result);
+        res.status(201).json({
+            message: 'New number of cars posted'
+        });
+    })
+    .catch(err => console.log(err));
 });
 
-router.get('/:countID', (req, res, next) => {
-    const id = req.params.countID;
+
+
+
+router.get('/:parkID', (req, res, next) => {
+    const id = req.params.parkID;
+    parkCount.findById(id).exec().then(doc =>{
+        // parkCount.col.find().sort({"datetime": -1}).limit(1) - maybe use for latest count
+        console.log(doc);
+        res.status(200).json(doc);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({error:err});
+    });    
     if (id == 'library') {
         res.status(200).json({
             message: 'Handling GET Library Park requests to /count'

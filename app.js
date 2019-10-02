@@ -1,10 +1,15 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 
 
 const countRoutes = require('./api/routes/count');
 const dataRoutes = require('./api/routes/data');
+
+mongoose.connect('mongodb+srv://admin:' + process.env.MONGO_ATLAS_PW + '@baywatch-mayvd.mongodb.net/test?retryWrites=true&w=majority', {
+   useMongoClient: true 
+});
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
